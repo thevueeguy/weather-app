@@ -20,13 +20,13 @@ const router = createBrowserRouter(
         if (!params.location) throw redirect("/");
 
         try {
-          const res = await fetch(
-            `https://api.weatherapi.com/v1/current.json?q=${
-              params.location
-            }&key=${import.meta.env.VITE_WEATHER_API_KEY}`
-          );
-          const data = await res.json();
-          return data;
+          // const res = await fetch(
+          //   `https://api.weatherapi.com/v1/current.json?q=${
+          //     params.location
+          //   }&key=${import.meta.env.VITE_WEATHER_API_KEY}`
+          // );
+          // const data = await res.json();
+          return "sharad";
         } catch (err) {
           throw redirect("/");
         }

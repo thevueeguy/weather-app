@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { DebounceInput } from "react-debounce-input";
-import "./style.css";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import "./style.css";
 
 const LocationDialog = () => {
   const [location, setLocation] = useState<string>("");
@@ -10,11 +11,13 @@ const LocationDialog = () => {
 
   const [locationLoading, setLocationLoading] = useState<boolean>(false);
 
-  useEffect(() => { console.log(error)}, [error]);
+  useEffect(() => {
+    console.log(error);
+  }, [error]);
 
   const handleSubmit = () => {
     navigate(`/weather/${location}`);
-  }
+  };
 
   const getDeviceLocation = () => {
     setLocationLoading(true);
@@ -25,7 +28,9 @@ const LocationDialog = () => {
         const lng = crd.longitude.toString();
 
         try {
-          const res = await fetch(`https://us1.locationiq.com/v1/reverse.php?key=${import.meta.env.VITE_LOCATION_IQ_TOKEN}&lat=` + lat + "&lon=" + lng + "&format=json");
+          const res = await fetch(
+            `https://us1.locationiq.com/v1/reverse.php?key=${import.meta.env.VITE_LOCATION_IQ_TOKEN}&lat=` + lat + "&lon=" + lng + "&format=json"
+          );
           const data = await res.json();
           setLocation(data.address.city);
         } catch (err) {
@@ -47,8 +52,12 @@ const LocationDialog = () => {
   };
 
   return (
-    <div className="locationDialog">
-
+    <motion.div
+      className="locationDialog"
+      initial={{ opacity: 0, marginBottom: 300 }}
+      whileInView={{ opacity: 1, marginBottom: 0 }}
+      transition={{ duration: 0.75 }}
+    >
       <p className="heading">Weather App</p>
 
       <DebounceInput
@@ -64,14 +73,29 @@ const LocationDialog = () => {
         <div /> or <div />
       </div>
 
-      <button className="getLocationBtn" onClick={getDeviceLocation} disabled={locationLoading}>
-        { locationLoading ? <div className="loader"></div> : "Get Device Location"}
+      <button
+        className="getLocationBtn"
+        onClick={getDeviceLocation}
+        disabled={locationLoading}
+      >
+        {locationLoading ? (
+          <div className="loader"></div>
+        ) : (
+          "Get Device Location"
+        )}
       </button>
-      
-      <div className="submitBtnContainer" >
-        <button type="submit" className="submitBtn" disabled={location === ""} onClick={handleSubmit}>Submit</button>
+
+      <div className="submitBtnContainer">
+        <button
+          type="submit"
+          className="submitBtn"
+          disabled={location === ""}
+          onClick={handleSubmit}
+        >
+          Submit
+        </button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
