@@ -45,14 +45,17 @@ The Weather App provides users with a simple and intuitive way to check weather 
 1. Clone the repository: `git clone https://github.com/thevueeguy/weather-app.git`
 2. Navigate to the project directory: `cd weather-app`
 3. Install dependencies: `npm install`
+4. Run the application: `npm run dev or yarn run dev`
 
 <br>
 
 ## Usage
-1. Obtain an API key from your chosen weather API provider.
-2. In the project directory, create a `.env` file and add your API key: `REACT_APP_API_KEY=your-api-key`
-3. Start the app: `npm start`
-4. Open your browser and navigate to [`http://localhost:3000`](http://localhost:3000) to use the app.
+1. Obtain an API key from [weather API provider](https://www.weatherapi.com/).
+2. Obtain an API key from [Location API provider](https://locationiq.com/).
+3. In the project directory, create a `.env` file and add your API key: `VITE_WEATHER_API_KEY=your-weather-api-key`
+4. In the .env file add API token: `VITE_LOCATION_IQ_TOKEN=your-location-api-token`
+5. Start the app: `npm run dev or yarn run dev`
+6. Open your browser and navigate to [`http://localhost:5173`](http://localhost:5173) to use the app.
 
 <br>
 
@@ -61,13 +64,25 @@ The Weather App provides users with a simple and intuitive way to check weather 
 - CSS3
 - JavaScript (ES6+)
 - ReactJS
+- Framer-motion and React router v6
 
 <br>
 
 ## API
-The app uses a third-party weather API to retrieve weather data. The candidate can choose any API they are comfortable with, such as OpenWeatherMap, AccuWeather, or Weather Underground. The API key is required for accessing weather data.
+The app uses a third-party [weather API](https://www.weatherapi.com/) to retrieve weather data and third party [location api](https://locationiq.com/) to retrieve location data. Also,  you can choose any API you are comfortable with, such as OpenWeatherMap, AccuWeather, or Weather Underground. The API key is required for accessing weather data and location data.
 
 <br>
 
 ## Screenshots
-/* to be add */
+![image](https://github.com/thevueeguy/weather-app/assets/78133036/cb8ec249-d875-4c79-9123-80973538b25d)
+<br>
+![image](https://github.com/thevueeguy/weather-app/assets/78133036/88456ed2-ad40-4a99-88ff-12ea3646e403)
+<br>
+![image](https://github.com/thevueeguy/weather-app/assets/78133036/26d70ec9-e2cc-4727-a923-5d9dbec15159)
+<br>
+![image](https://github.com/thevueeguy/weather-app/assets/78133036/2e063eea-1b0d-4d05-8a67-4608c60b028f)
+<br>
+![image](https://github.com/thevueeguy/weather-app/assets/78133036/5caad1b6-4363-4ed7-8055-fb833ac0ae29)
+
+
+
