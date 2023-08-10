@@ -1,12 +1,24 @@
 import { motion } from "framer-motion";
 import "./text.css";
-import { useNavigate } from "react-router-dom";
+import { isRouteErrorResponse, useNavigate, useRouteError } from "react-router-dom";
 
 const FallbackComponent = () => {
   const navigate = useNavigate();
+  const error = useRouteError();
+  let errorMessage: string;
+
+  if (isRouteErrorResponse(error)) {
+    errorMessage = error.error?.message || error.data;
+  } else if (error instanceof Error) {
+    errorMessage = error.message;
+  } else if (typeof error === "string") {
+    errorMessage = error;
+  } else {
+    errorMessage = "Unknown error";
+  }
 
   const goBackHandler = () => {
-    navigate("/");
+    navigate(-1);
   }
 
   return (
@@ -18,8 +30,7 @@ const FallbackComponent = () => {
     >
       <div className="container2">
         <p className="errorText">
-          Unable to fetch the weather data, <br />
-          please try again later.
+          {errorMessage}
         </p>
         <button className="submitBtn" onClick={goBackHandler}>
           Go back

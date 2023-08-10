@@ -1,19 +1,15 @@
-import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { useState } from "react";
 import { DebounceInput } from "react-debounce-input";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
-import "./style.css";
+import toast from "react-simple-toasts";
+import "./location-input.css";
 
 const LocationDialog = () => {
   const [location, setLocation] = useState<string>("");
-  const [error, setError] = useState<string>("");
   const navigate = useNavigate();
 
   const [locationLoading, setLocationLoading] = useState<boolean>(false);
-
-  useEffect(() => {
-    console.log(error);
-  }, [error]);
 
   const handleSubmit = () => {
     navigate(`/weather/${location}`);
@@ -34,13 +30,25 @@ const LocationDialog = () => {
           const data = await res.json();
           setLocation(data.address.city);
         } catch (err) {
-          setError("Unable to fetch the location!");
+          toast("Unable to fetch the location!", {
+            duration: 3000,
+            position: 'top-center',
+            theme: 'failure',
+            clickClosable: true,
+            className: 'custom-toast'
+          });
         } finally {
           setLocationLoading(false);
         }
       },
       (err: GeolocationPositionError) => {
-        console.log(err.message);
+        toast(err.message, {
+          duration: 3000,
+          position: 'top-center',
+          theme: 'failure',
+          clickClosable: true,
+          className: 'custom-toast'
+        });
         setLocationLoading(false);
       },
       {

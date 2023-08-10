@@ -109,6 +109,13 @@
     animation: spin 2s linear infinite;
     background: transparent;
   }
+
+  .custom-toast {
+    color: white;
+    background-color: gray;
+    padding: 1rem 2rem;
+    border-radius: 20px;
+  }
   
   /* Safari */
   @-webkit-keyframes spin {
