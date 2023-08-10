@@ -44,7 +44,7 @@ The Weather App provides users with a simple and intuitive way to check weather 
 
 1. Clone the repository: `git clone https://github.com/thevueeguy/weather-app.git`
 2. Navigate to the project directory: `cd weather-app`
-3. Install dependencies: `npm install`
+3. Install dependencies: `npm install or yarn install`
 4. Run the application: `npm run dev or yarn run dev`
 
 <br>
