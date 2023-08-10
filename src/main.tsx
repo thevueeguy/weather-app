@@ -10,13 +10,15 @@ import {
 import App from "./App.tsx";
 import WeatherDataDialog from "./components/WeatherDataDialog/WeatherDataDialog.tsx";
 import NotFound from "./components/NotFound/index.tsx";
+import FallbackComponent from "./components/FallbackComponent/index.tsx";
+import { WeatherData } from "./components/WeatherDataDialog/type";
 
 const router = createBrowserRouter(
   createRoutesFromElements([
     <Route path="/" element={<App />} errorElement={<NotFound />} />,
     <Route
       path="weather/:location"
-      loader={async ({ params }) => {
+      loader={async ({ params }): Promise<WeatherData> => {
         if (!params.location) throw redirect("/");
 
         try {
@@ -25,12 +27,14 @@ const router = createBrowserRouter(
           //     params.location
           //   }&key=${import.meta.env.VITE_WEATHER_API_KEY}`
           // );
-          // const data = await res.json();
-          return "sharad";
+          // const data: WeatherData = await res.json();
+
+          return "data";
         } catch (err) {
           throw redirect("/");
         }
       }}
+      errorElement={<FallbackComponent />}
       element={<WeatherDataDialog />}
     />
   ])
