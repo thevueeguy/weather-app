@@ -58,8 +58,6 @@ The Weather App provides users with a simple and intuitive way to check weather 
 6. Open your browser and navigate to [`http://localhost:5173`](http://localhost:5173) to use the app.
 7. Enter the location in input field and press enter or click on "Get Device Location" to get the weather information.
 
-8. 
-
 <br>
 
 ## Technology Stack
