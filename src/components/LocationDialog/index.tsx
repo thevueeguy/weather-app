@@ -46,6 +46,7 @@ const LocationDialog = () => {
           position: 'top-center',
           theme: 'failure',
           clickClosable: true,
+          maxVisibleToasts: 3,
           className: 'custom-toast'
         });
         setLocationLoading(false);
