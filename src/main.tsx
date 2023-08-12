@@ -9,7 +9,7 @@ import {
 import App from "./App.tsx";
 import FallbackComponent from "./components/FallbackComponent/index.tsx";
 import NotFound from "./components/NotFound/index.tsx";
-import WeatherDataDialog from "./components/WeatherDataDialog/WeatherDataDialog.tsx";
+import WeatherDataDialog from "./components/WeatherDataDialog/index.tsx";
 import { WeatherData } from "./components/WeatherDataDialog/type";
 
 const router = createBrowserRouter(

@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { DebounceInput } from "react-debounce-input";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useNavigation } from "react-router-dom";
 import toast from "react-simple-toasts";
 import "./location-input.css";
 
 const LocationDialog = () => {
   const [location, setLocation] = useState<string>("");
   const navigate = useNavigate();
+  const navigation = useNavigation();
 
   const [locationLoading, setLocationLoading] = useState<boolean>(false);
 
@@ -31,6 +32,7 @@ const LocationDialog = () => {
             position: 'top-center',
             theme: 'failure',
             clickClosable: true,
+            maxVisibleToasts: 3,
             className: 'custom-toast'
           });
         } finally {
@@ -55,6 +57,9 @@ const LocationDialog = () => {
       }
     );
   };
+
+  if(navigation.state === "loading")
+    return <div className="loader"></div>;
 
   return (
     <motion.div
