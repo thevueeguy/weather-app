@@ -74,11 +74,11 @@ The app uses a third-party [weather API](https://www.weatherapi.com/) to retriev
 <br>
 
 ## Screenshots
-![image](https://github.com/thevueeguy/weather-app/assets/78133036/cb8ec249-d875-4c79-9123-80973538b25d)
+![image](https://github.com/thevueeguy/weather-app/assets/78133036/7e8569a4-5a9e-4706-b951-7f4d34264ae3)
 <br>
-![image](https://github.com/thevueeguy/weather-app/assets/78133036/88456ed2-ad40-4a99-88ff-12ea3646e403)
+![image](https://github.com/thevueeguy/weather-app/assets/78133036/03fc3725-a219-4d27-9dd0-6aa43ed71777)
 <br>
-![image](https://github.com/thevueeguy/weather-app/assets/78133036/26d70ec9-e2cc-4727-a923-5d9dbec15159)
+![image](https://github.com/thevueeguy/weather-app/assets/78133036/5f92e853-b85f-4a1f-bf47-310b1baed305)
 <br>
 ![image](https://github.com/thevueeguy/weather-app/assets/78133036/2e063eea-1b0d-4d05-8a67-4608c60b028f)
 <br>
