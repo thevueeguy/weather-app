@@ -1,135 +1,148 @@
-.locationDialog  {
-    aspect-ratio: 16/12;
-    height: 18rem;
-    background-color: white;
-    border-radius: 2%;
+.locationDialog {
+  aspect-ratio: 16/12;
+  height: 15rem;
+  background-color: white;
+  border-radius: 2%;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.inputContainer {
+  height: 75%;
+  width: 85%;
+  background: transparent;
+  margin: 1rem 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .heading {
-    height: 20%;
-    width: 100%;
-    padding: 0.6rem 1rem;
+  height: 25%;
+  width: 100%;
+  padding: 0.6rem 1rem;
 
-    background: transparent;
-    box-sizing: border-box;
-    border-bottom: 2px solid gainsboro;
+  background: transparent;
+  box-sizing: border-box;
+  border-bottom: 2px solid gainsboro;
 
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    color: rgb(84, 194, 238);
-    font-weight: 600;
-    font-size: 1rem;
-    font-family: "poppins";
+  color: rgb(84, 194, 238);
+  font-weight: 600;
+  font-size: 1rem;
+  font-family: "poppins";
 }
 
 .locationInput {
-    background: transparent;
-    width: 75%;
-    border: 2px solid gainsboro;
-    height: 2rem;
-    font-family: "poppins";
-    margin-top: 1.2rem;
-    margin-bottom: 0.5rem;
-    padding: 0.5rem 1rem;
+  background: transparent;
+  width: 100%;
+  border: 2px solid gainsboro;
+  height: 3rem;
+  font-family: "poppins";
+  padding: 0.4rem 2rem;
+  border-radius: 5px;
+  text-align: center;
+  box-sizing: border-box;
 }
 
 .locationInput:placeholder-shown {
-    text-align: center;
-    color: gainsboro;
-    font-size: 0.9rem;
+  text-align: center;
+  color: gainsboro;
 }
 
 .locationInput:focus {
-    border: 2px solid gainsboro;
-    outline: none;
-    color: grey
+  border: 2px solid gainsboro;
+  outline: none;
+  color: grey;
+}
+
+.locationInput:focus::placeholder {
+  color: transparent;
 }
 
 .break {
-    background: transparent;
-    color: grey;
-    margin-bottom: 0.5rem;
-    width: 100%;
+  background: transparent;
+  color: grey;
+  width: 100%;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .break div {
-    height: 2px;
-    width: 40%;
-    margin: 0 0.8rem;
-    background-color: gainsboro;
+  height: 2px;
+  width: 40%;
+  background-color: gainsboro;
 }
 
-.getLocationBtn, .submitBtn {
-    border: none;
-    border-radius: 5px;
-    background-color: #0CAFFF;
-    width: 85%;
-    color: white;
-    padding: 0.5rem 0;
-    font-family: "poppins";
-    font-size: 0.9rem;
-
-    display: flex;
-    justify-content: center;
-    transition: all 0.1s ease-in-out;
+.break span {
+  text-align: center;
+  background: transparent;
+  width: 20%;
 }
 
-.submitBtn:active {
-    scale: 0.98;
+.getLocationBtn {
+  border: none;
+  border-radius: 5px;
+  background-color: #0cafff;
+  width: 100%;
+  color: white;
+  padding: 0.5rem 0;
+  font-family: "poppins";
+  font-size: 0.9rem;
+
+  display: flex;
+  justify-content: center;
+  transition: all 0.1s ease-in-out;
 }
 
-.submitBtn:disabled, .getLocationBtn:disabled {
-    background-color: lightgray;
-}
-
-.submitBtnContainer {
-    width: 100%;
-    background: transparent;
-    text-align: center;
-    border-top: 2px solid gainsboro;
-    padding: 0.8rem 0;
-    margin-top: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.getLocationBtn:disabled {
+  background-color: lightgray;
 }
 
 .loader {
-    border: 0.2rem solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 0.2rem solid gray;
-    width: 0.95rem;
-    height: 0.95rem;
-    -webkit-animation: spin 2s linear infinite; /* Safari */
-    animation: spin 2s linear infinite;
-    background: transparent;
-  }
+  border: 0.2rem solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 0.2rem solid gray;
+  width: 0.95rem;
+  height: 0.95rem;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  background: transparent;
+}
 
-  .custom-toast {
-    color: white;
-    background-color: gray;
-    padding: 1rem 2rem;
-    border-radius: 20px;
-    background: transparent;
+.custom-toast {
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 20px;
+  background: transparent;
+  background-color: rgb(3, 135, 242);
+  font-family: "poppins";
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
   }
-  
-  /* Safari */
-  @-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
   }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
+  100% {
+    transform: rotate(360deg);
+  }
+}

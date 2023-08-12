@@ -20,3 +20,18 @@
     padding: 2rem 0;
     border-radius: 10px;
 }
+
+.submitBtn {
+    border: none;
+    border-radius: 5px;
+    background-color: #0CAFFF;
+    width: 85%;
+    color: white;
+    padding: 0.5rem 0;
+    font-family: "poppins";
+    font-size: 0.9rem;
+
+    display: flex;
+    justify-content: center;
+    transition: all 0.1s ease-in-out;
+}

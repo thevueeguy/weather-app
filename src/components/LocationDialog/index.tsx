@@ -11,10 +11,6 @@ const LocationDialog = () => {
 
   const [locationLoading, setLocationLoading] = useState<boolean>(false);
 
-  const handleSubmit = () => {
-    navigate(`/weather/${location}`);
-  };
-
   const getDeviceLocation = () => {
     setLocationLoading(true);
     navigator.geolocation.getCurrentPosition(
@@ -27,10 +23,10 @@ const LocationDialog = () => {
           const res = await fetch(
             `https://us1.locationiq.com/v1/reverse.php?key=${import.meta.env.VITE_LOCATION_IQ_TOKEN}&lat=` + lat + "&lon=" + lng + "&format=json"
           );
-          const data = await res.json();
-          setLocation(data.address.city);
+           const {address: {city}} = await res.json();
+           navigate(`/weather/${city}`);
         } catch (err) {
-          toast("Unable to fetch the location!", {
+          toast("Unable to get the location", {
             duration: 3000,
             position: 'top-center',
             theme: 'failure',
@@ -40,6 +36,7 @@ const LocationDialog = () => {
         } finally {
           setLocationLoading(false);
         }
+
       },
       (err: GeolocationPositionError) => {
         toast(err.message, {
@@ -68,39 +65,35 @@ const LocationDialog = () => {
     >
       <p className="heading">Weather App</p>
 
-      <DebounceInput
-        minLength={3}
-        value={location}
-        debounceTimeout={200}
-        className="locationInput"
-        placeholder="Enter city name"
-        onChange={(event) => setLocation(event.target.value)}
-      />
-
-      <div className="break">
-        <div /> or <div />
-      </div>
-
-      <button
-        className="getLocationBtn"
-        onClick={getDeviceLocation}
-        disabled={locationLoading}
-      >
-        {locationLoading ? (
-          <div className="loader"></div>
-        ) : (
-          "Get Device Location"
-        )}
-      </button>
-
-      <div className="submitBtnContainer">
+      <div className="inputContainer">
+        <DebounceInput
+          minLength={1}
+          value={location}
+          debounceTimeout={200}
+          className="locationInput"
+          placeholder="Enter city name"
+          onChange={(event) => setLocation(event.target.value)}
+          onKeyUp={(event: KeyboardEvent) => {
+            if(event.key === 'Enter' && (event.target as HTMLInputElement).value.length > 0) {
+              navigate(`/weather/${(event.target as HTMLInputElement).value}`);
+            }
+          }}
+        />
+        
+        <div className="break">
+        <div /><span>or</span><div />
+        </div>
+        
         <button
-          type="submit"
-          className="submitBtn"
-          disabled={location === ""}
-          onClick={handleSubmit}
+          className="getLocationBtn"
+          onClick={getDeviceLocation}
+          disabled={locationLoading}
         >
-          Submit
+          {locationLoading ? (
+            <div className="loader"></div>
+          ) : (
+            "Get Device Location"
+          )}
         </button>
       </div>
     </motion.div>
