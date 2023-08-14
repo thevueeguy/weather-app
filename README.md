@@ -65,7 +65,8 @@ The Weather App provides users with a simple and intuitive way to check weather 
 - CSS3
 - JavaScript (ES6+)
 - ReactJS
-- Framer-motion and React router v6
+- Framer-motion
+- React router v6
 
 <br>
 
